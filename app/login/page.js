@@ -1,30 +1,49 @@
 'use client'
 
-import { useState } from "react"
-import {FaEye, FaEyeSlash} from 'react-icons/fa'
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useRouter } from "next/navigation";
 
 function Login() {
-
-    const [showPassword, setShowPassword] = useState(false);
-    const submitRouter = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="h-screen bg-[url('/assets/LoginPageBackground.png')] bg-cover bg-center flex items-center justify-center">
-        <div className="h-140 w-140 bg-white rounded-[50] flex flex-col items-center justify-center">
-            <div className="font-bold text-5xl mb-15">Log in</div>
-            <input placeholder="Email" className="border-[1.5] h-15 w-80 px-5 mb-5 rounded-[15] text-2xl border-gray-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-green-300 focus:scale-105 hover:scale-105 hover:shadow-md"></input>
-            <div className="relative flex flex-row items-center mb-10">
-                <input type={showPassword ? "text" : "password"} placeholder="Password" className="border-[1.5] h-15 w-80 px-5 pr-11 rounded-[15] text-2xl border-gray-900 transition-all duration-300 ease-in-out focus:outline-none focus:border-green-300 focus:scale-105 hover:scale-105 hover:shadow-md" ></input>
-                <div className="absolute right-4 cursor-pointer text-gray-600" onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <FaEye size={20}/> : <FaEyeSlash size={20}/>}
-                </div>
-            </div>
-            <button onClick={() => submitRouter.push('/')} className="bg-green-800 h-15 w-80 rounded-[20] text-white font-bold text-2xl cursor-pointer mb-2 focus:scale-95 focus:bg-green-900 hover:scale-105 transition-all ease-in-out" >Log in</button>
-            <p className="text-[100] cursor-pointer" >Forgot password?</p>
+      <div className="w-full max-w-md p-10 bg-[rgb(217,240,217)] rounded-3xl shadow-lg backdrop-blur-sm bg-opacity-90 flex flex-col items-center">
+        <h2 className="text-4xl font-bold text-green-800 mb-8">Log In</h2>
+
+        <input
+          type="email"
+          placeholder="Email"
+          className="mb-5 w-full px-5 py-3 rounded-xl border border-gray-400 text-lg shadow-sm focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-300 transition-all"
+        />
+
+        <div className="relative w-full mb-6">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="w-full px-5 py-3 pr-11 rounded-xl border border-gray-400 text-lg shadow-sm focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-300 transition-all"
+          />
+          <div
+            className="absolute right-4 top-3.5 text-gray-600 cursor-pointer"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
+          </div>
         </div>
+
+        <button
+          onClick={() => router.push('/')}
+          className="w-full py-3 bg-green-700 text-white rounded-xl text-lg font-semibold hover:bg-green-800 transition-transform transform hover:scale-105 cursor-pointer"
+        >
+          Log in
+        </button>
+
+        <p className="mt-4 text-green-700 cursor-pointer text-sm hover:underline">Forgot password?</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
