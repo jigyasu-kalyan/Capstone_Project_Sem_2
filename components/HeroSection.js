@@ -2,12 +2,12 @@ import React from 'react';
 
 function HeroSection() {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center px-10 py-10 bg-gradient-to-br from-[#D9F0D9] to-white">
+    <div className="flex flex-col md:flex-row justify-between items-center px-10 py-10 bg-[#EDF7ED]">
       <div className="flex flex-col space-y-4 max-w-xl mb-10 md:mb-0">
-        <h1 className="text-4xl font-bold text-green-800">
+        <h1 className="text-5xl font-bold text-green-800">
           Your journey to peace starts here.
         </h1>
-        <p className="text-lg text-gray-700">
+        <p className="text-xl text-gray-700">
           Meditation, therapy, wellness – all in one serene place.
         </p>
       </div>
@@ -32,7 +32,7 @@ function HeroSection() {
           ></textarea>
           <button
             type="submit"
-            className="bg-green-700 text-white py-2 rounded-md hover:bg-green-800 transition cursor-pointer"
+            className="bg-green-700 text-white py-2 rounded-md hover:bg-green-800 transition duration-300 cursor-pointer hover:scale-105"
           >
             Send
           </button>

@@ -1,28 +1,25 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      "./app/**/*.{js,ts,jsx,tsx}",
-      "./pages/**/*.{js,ts,jsx,tsx}",
-      "./components/**/*.{js,ts,jsx,tsx}",
-    ],
-    theme: {
-      extend: {
-        animation: {
-          float: "float 6s ease-in-out infinite",
-          'float-slow': "float-slow 10s ease-in-out infinite",
+  theme: {
+    extend: {
+      animation: {
+        fadein: 'fadein 1.5s ease-out',
+        bounce: 'bounce 1s infinite',
+        'zoom-in': 'zoom-in 0.5s ease-in-out',
+      },
+      keyframes: {
+        fadein: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
-        keyframes: {
-          float: {
-            '0%, 100%': { transform: 'translateY(0px)' },
-            '50%': { transform: 'translateY(-20px)' },
-          },
-          'float-slow': {
-            '0%, 100%': { transform: 'translateY(0px)' },
-            '50%': { transform: 'translateY(-30px)' },
-          },
+        bounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'zoom-in': {
+          '0%': { transform: 'scale(0.8)' },
+          '100%': { transform: 'scale(1)' },
         },
       },
     },
-    plugins: [],
-  };
-  
+  },
+};
